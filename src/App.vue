@@ -1,7 +1,5 @@
 <script>
-import { defineComponent, computed } from "vue";
-
-export default defineComponent({
+export default {
   setup() {
     const truncateText = (str, length, ending) => {
       if (length == null) {
@@ -16,17 +14,17 @@ export default defineComponent({
         return str;
       }
     };
-
-    return { truncateText };
+    return {
+      truncateText,
+    };
   },
-});
+};
 </script>
 
 <template>
   <div class="container d-flex flex-column justify-content-center">
     <!-- Search bar -->
     <p class="text-center fs-1 fw-bold text-primary mt-5">Foody Receipt</p>
-
     <div class="row mt-2 mb-4">
       <div class="col-10">
         <input
@@ -36,19 +34,18 @@ export default defineComponent({
         />
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-outline-primary btn-lg w-100">
+        <button class="btn btn-outline-primary btn-lg w-100" type="button">
           🔍 Search
         </button>
       </div>
     </div>
-
     <!-- Card component list -->
     <div class="row row-cols-1 row-cols-md-5 g-4 mt-3">
-      <div v-for="i in 14" class="col">
+      <div class="col" v-for="i in 14">
         <div class="card h-100">
           <img
-            src="https://www.themealdb.com/images/category/chicken.png"
             class="card-img-top"
+            src="https://www.themealdb.com/images/category/chicken.png"
             alt="nice pic"
           />
           <div class="card-body">
@@ -57,24 +54,21 @@ export default defineComponent({
               {{
                 truncateText(
                   `Chicken is a type of domesticated fowl, a subspecies of the red
-              junglefowl. It is one of the most common and widespread domestic
-              animals, with a total population of more than 19 billion as of
-              2011.[1] Humans commonly keep chickens as a source of food
-              (consuming both their meat and eggs) and, more rarely, as pets.`,
+                  junglefowl. It is one of the most common and widespread domestic
+                  animals, with a total population of more than 19 billion as of
+                  2011.[1] Humans commonly keep chickens as a source of food
+                  (consuming both their meat and eggs) and, more rarely, as pets.`,
                   100
                 )
               }}
             </p>
             <p class="text-end mb-0">
-              <a href="#">
-                <small>Read more...</small>
-              </a>
+              <a href="#"><small>Read more...</small></a>
             </p>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Footer component -->
     <footer class="footer py-3 text-center mt-5 mb-4">
       <p class="m-0">Create with ❤️‍🔥 and 🖐 in Denpasar</p>
@@ -86,5 +80,3 @@ export default defineComponent({
     </footer>
   </div>
 </template>
-
-<style></style>
